@@ -1,0 +1,77 @@
+AI 登島計畫｜會場 AI 成熟度小測驗 — 授權與素材來源
+================================================
+
+本資料夾為離線靜態網頁，供經濟部產業競爭力輔導團會場使用。
+以下列出套件內每一項素材及其授權。本作品全部為原創像素風介面與音樂，未使用任何商業遊戲的名稱、角色、介面、音樂或素材，也未使用 Zpix 字型。
+
+
+1) 俐方體11號／Cubic 11（字型）
+   檔案：assets/fonts/Cubic_11.woff2
+         assets/fonts/OFL.txt（完整授權全文，須隨字型一併保留）
+   版本：v1.500（https://github.com/ACh-K/Cubic-11/releases/tag/v1.500）
+   來源：https://github.com/ACh-K/Cubic-11
+   授權：SIL Open Font License 1.1
+   說明：「Cubic」「俐方體」為保留名稱。可免費商用、再散布，但須附上
+         OFL.txt；禁止單獨出售字型檔。本套件已附上授權全文。
+
+
+2) 原創像素插圖與介面（本專案自行繪製）
+   檔案：assets/img/island.png
+         assets/img/island_stage1.png
+         assets/img/island_stage2.png
+         assets/img/island_stage3.png
+         assets/img/island_stage4.png
+         assets/img/icon_beach.png
+         assets/img/icon_forest.png
+         assets/img/icon_harbor.png
+         assets/img/icon_volcano.png
+         assets/img/hero.png
+         assets/img/portrait_unknowing.png
+         assets/img/portrait_conscious.png
+         assets/img/portrait_ready.png
+         assets/img/portrait_scaling.png
+         assets/img/icon_speaker.png
+         assets/img/icon_speaker_off.png
+         assets/img/qr_placeholder.png
+         以及 style.css 中的介面框線、按鈕、雲朵與 HUD 樣式
+   授權：CC0 1.0（公眾領域貢獻宣告）
+   說明：熱帶島嶼、沙灘、森林、港口、火山、旗幟、雲朵、四種稱號人像、
+         靜音圖示、角色與木框 HUD
+         皆為本專案以程式繪製的原創像素圖，非取自任何遊戲或商用圖庫。
+         qr_placeholder.png 僅為示意用的假圖樣，不是有效 QR 碼。
+
+
+3) 未採用、但評估過的開源介面庫（本套件未捆綁其檔案）
+   - RPGUI（zlib License）https://github.com/RonenNess/RPGUI
+   - NES.css（MIT License）https://github.com/nostalgic-css/NES.css
+   為了配合「天空藍／草綠／沙黃／海藍／火山橙」的配色，介面改以
+   本專案原創 CSS 像素風 HUD 呈現，故未內嵌上述套件。
+
+
+4) 本測驗的題目與等級名稱
+   完整挑戰 17 題對應「製造業AI成熟度量表」全部計分題（措辭已改寫）；快速闖關另有五構面各一題的精簡版。四個官方等級名稱
+   （Unknowing AI、Conscious AI、Ready AI、Scaling AI）及其說明、
+   全國占比，依委託方提供之量表資料整理。遊戲化稱號（見習新手、
+   探險者、冒險戰士、傳奇勇者）為會場包裝文案，可在 questions.json
+   修改。分數門檻標示為暫定，正式門檻確認後請改 questions.json。
+
+
+5) 第三方程式庫
+   本套件為純 HTML／CSS／JS，無 npm 套件、無 CDN、無追蹤、無資料回傳。
+
+
+6) 原創 8-bit 音樂與音效
+   檔案：audio.js
+   授權：與本專案一併提供（原創旋律與音效，以 Web Audio API 即時合成，
+         不含任何取樣檔或既有遊戲配樂）。旋律為自創的 C 大調五聲音階
+         輕快迴圈，並非模仿任何商業遊戲曲調。
+
+
+7) qrcode-generator（QR 碼產生器，僅在設定 meta.qrUrl 時使用）
+   檔案：assets/vendor/qrcode.js
+         assets/vendor/LICENSE-qrcode-generator.txt
+   版本：1.4.4
+   作者：Kazuhiko Arase
+   來源：https://github.com/kazuhikoarase/qrcode-generator
+   授權：MIT License
+   說明：「QR Code」為 DENSO WAVE INCORPORATED 的註冊商標。

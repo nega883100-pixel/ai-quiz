@@ -1,0 +1,1003 @@
+{
+  "_comment": "可編輯的測驗設定。完整挑戰為 17 題全文（措辭已改寫，非原文照抄）；快速闖關為五構面各一題精簡版。四個成熟度等級（Unknowing／Conscious／Ready／Scaling AI）是結果稱號，不是關卡。分數門檻與複選／矩陣計分為暫定（thresholdsProvisional: true），正式規則確認後請改此檔並同步更新 index.html 內嵌設定。請勿在此檔放入任何真實企業作答或聯絡資料。",
+  "meta": {
+    "title": "AI 登島計畫",
+    "subtitle": "了解你的企業AI成熟度",
+    "tagline": "",
+    "org": "經濟部產業競爭力輔導團",
+    "orgShort": "工研院",
+    "startHint": "免填個資・答完立即揭曉你的AI冒險稱號",
+    "fullButton": "完整挑戰 17題・約2分鐘",
+    "fullButtonEn": "FULL QUEST",
+    "quickButton": "快速闖關 5題・30秒",
+    "quickButtonEn": "QUICK RUN",
+    "startButton": "完整挑戰 17題・約2分鐘",
+    "startButtonEn": "FULL QUEST",
+    "restartLabel": "重新開始",
+    "againLabel": "再測一次",
+    "resultHeadlinePrefix": "你的稱號：",
+    "missionClear": "MISSION CLEAR",
+    "nationalTemplate": "全國有 {percent}% 的企業跟你同級",
+    "nationalCountTemplate": "（{count}家）",
+    "weakLabel": "較需加強的構面：",
+    "weakBalanced": "各構面表現均衡",
+    "recommendLabel": "下一步建議",
+    "qrLabel": "掃碼預約輔導諮詢",
+    "qrUrl": "",
+    "qrPlaceholderNote": "連結可在 questions.json 的 meta.qrUrl 設定",
+    "idleResetMs": 30000,
+    "idleHintTemplate": "{sec}秒後回到開頭",
+    "thresholdsProvisional": true,
+    "thresholdsNote": "分數門檻為暫定",
+    "showThresholdsNote": true,
+    "thresholdsNotePlacement": "footnote",
+    "progressTemplate": "STAGE {current}/{total}",
+    "dimensionTemplate": "構面：{name}",
+    "qrSubLabel": "北區輔導中心將主動了解您的需求",
+    "prevLabel": "◀ 上一題",
+    "nextLabel": "下一題 ▶",
+    "confirmLabel": "確認 ▶",
+    "multiLabel": "可複選",
+    "matrixHint": "請為每一項系統點選目前階段",
+    "modeFullTag": "完整挑戰",
+    "modeQuickTag": "快速闖關"
+  },
+  "scoring": {
+    "thresholdsProvisional": true,
+    "method": "average",
+    "note": "原文量表未載明分數門檻與複選計分規則，以下為暫定：各題先換成 1–5 分（複選依勾選項數分級，矩陣題為各系統 1／3／5 的平均），再以全部題目平均對應等級。門檻與五題版 5–9／10–14／15–19／20–25 一致：平均 <2 見習新手、<3 探險者、<4 冒險戰士、≥4 傳奇勇者。",
+    "bands": [
+      {
+        "id": "unknowing",
+        "minAvg": 1.0,
+        "maxAvgExclusive": 2.0
+      },
+      {
+        "id": "conscious",
+        "minAvg": 2.0,
+        "maxAvgExclusive": 3.0
+      },
+      {
+        "id": "ready",
+        "minAvg": 3.0,
+        "maxAvgExclusive": 4.0
+      },
+      {
+        "id": "scaling",
+        "minAvg": 4.0,
+        "maxAvgExclusive": 5.01
+      }
+    ],
+    "multiRule": "count-bands",
+    "matrixRule": "average-of-rows-1-3-5"
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "no": 1,
+      "dimension": "數據與基礎設施",
+      "dimensionId": "data",
+      "title": "數位化程度",
+      "type": "matrix",
+      "prompt": "公司目前這些資訊系統，分別做到哪個階段？",
+      "columns": [
+        {
+          "id": "a",
+          "label": "尚無規劃或評估中",
+          "short": "評估中",
+          "score": 1
+        },
+        {
+          "id": "b",
+          "label": "系統建置中",
+          "short": "建置中",
+          "score": 3
+        },
+        {
+          "id": "c",
+          "label": "已導入並在使用",
+          "short": "已使用",
+          "score": 5
+        }
+      ],
+      "rows": [
+        {
+          "id": "mes",
+          "label": "製造執行（MES）"
+        },
+        {
+          "id": "ems",
+          "label": "設備機台管理（EMS）"
+        },
+        {
+          "id": "aps",
+          "label": "製造排程（APS）"
+        },
+        {
+          "id": "rms",
+          "label": "原料配方管理（RMS）"
+        },
+        {
+          "id": "wms",
+          "label": "倉儲管理（WMS）"
+        },
+        {
+          "id": "plm",
+          "label": "產品生命週期（PLM）"
+        },
+        {
+          "id": "erp",
+          "label": "企業資源規劃（ERP）"
+        },
+        {
+          "id": "scm",
+          "label": "供應鏈管理（SCM）"
+        },
+        {
+          "id": "crm",
+          "label": "客戶關係管理（CRM）"
+        },
+        {
+          "id": "bi",
+          "label": "商業智慧決策（BI）"
+        }
+      ],
+      "scoreRule": "average"
+    },
+    {
+      "id": "q2",
+      "no": 2,
+      "dimension": "數據與基礎設施",
+      "dimensionId": "data",
+      "title": "機聯網程度",
+      "type": "single",
+      "prompt": "工廠產線、機台或廠務設備，能不能自動把運作數據送到系統？（不必人工抄寫）",
+      "options": [
+        {
+          "label": "大多還靠人工操作，還沒有自動化，也無法自動收集數據",
+          "score": 1
+        },
+        {
+          "label": "已有基本自動化，但數據還不能自動收集或上傳（尚未機聯網）",
+          "score": 2
+        },
+        {
+          "label": "少數關鍵產線或設備已能自動收集、上傳並整合數據",
+          "score": 3
+        },
+        {
+          "label": "多條關鍵產線或設備已能自動收集並整合，也可在系統畫面即時查看狀態",
+          "score": 4
+        },
+        {
+          "label": "多條關鍵產線或設備已能自動收集並整合，還可透過電腦或網路遠端監控與操作",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "no": 3,
+      "dimension": "數據與基礎設施",
+      "dimensionId": "data",
+      "title": "數據彙整程度",
+      "type": "single",
+      "prompt": "各系統蒐集到的數據，目前串接與運用到什麼程度？",
+      "options": [
+        {
+          "label": "營運流程大多還沒數位化，仍以紙本或人工記錄，數據較少累積",
+          "score": 1
+        },
+        {
+          "label": "已有部分資訊系統，但多數獨立運作，數據尚未串接",
+          "score": 2
+        },
+        {
+          "label": "部分系統已串接，業務數據可跨系統流通使用",
+          "score": 3
+        },
+        {
+          "label": "已有集中管理的數據平台，整合內外部資料（含供應商或合作夥伴）",
+          "score": 4
+        },
+        {
+          "label": "不只集中管理，還能自動產生圖表，或以視覺化工具分析整合後的數據",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "no": 4,
+      "dimension": "數據與基礎設施",
+      "dimensionId": "data",
+      "title": "伺服器運算能力",
+      "type": "single",
+      "prompt": "公司用來支援AI應用的運算資源是什麼？（不含ChatGPT、Gemini等通用生成式工具）",
+      "options": [
+        {
+          "label": "還沒使用任何伺服器或運算資源來支援AI應用",
+          "score": 1
+        },
+        {
+          "label": "只用一般AI工具或雲端AI服務，還沒需要含GPU的高效能運算",
+          "score": 2
+        },
+        {
+          "label": "已使用含GPU的高效能運算（自建、委外或雲端皆可），支援資料分析或AI服務",
+          "score": 3
+        },
+        {
+          "label": "公司已自行擁有含GPU的高效能設備，能做模型訓練並用在實際業務",
+          "score": 4
+        },
+        {
+          "label": "除此之外，工廠已導入邊緣即時運算（Edge AI），可在現場即時判斷",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "no": 5,
+      "dimension": "AI投入資源",
+      "dimensionId": "resource",
+      "title": "資金投入",
+      "type": "single",
+      "prompt": "因應導入AI做數位轉型，公司預計年度會投入哪些預算或資源？（含軟硬體、專案、培訓及人力）",
+      "options": [
+        {
+          "label": "還沒規劃AI相關軟硬體或應用，也還沒配置相關人力",
+          "score": 1
+        },
+        {
+          "label": "已規劃人力或培訓，但還沒有軟硬體或應用發展預算",
+          "score": 2
+        },
+        {
+          "label": "已有軟硬體或應用投資規劃，但還沒規劃人力或培訓",
+          "score": 3
+        },
+        {
+          "label": "人力（或培訓）與軟硬體、應用發展都已有投資規劃",
+          "score": 4
+        },
+        {
+          "label": "已有專責單位，並編列人才、軟硬體或應用的固定預算",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "no": 6,
+      "dimension": "AI投入資源",
+      "dimensionId": "resource",
+      "title": "人才培訓",
+      "type": "single",
+      "prompt": "公司有沒有建立機制，提供員工AI相關教育訓練？",
+      "options": [
+        {
+          "label": "目前沒有培訓需求，也還沒規劃",
+          "score": 1
+        },
+        {
+          "label": "公司尚未提供培訓資源，但主管鼓勵員工自學",
+          "score": 2
+        },
+        {
+          "label": "尚未建立內部課程，但鼓勵參加外部培訓，並提供小額補助",
+          "score": 3
+        },
+        {
+          "label": "已初步建立培訓機制，有內部課程，目前先提供給少數重點員工",
+          "score": 4
+        },
+        {
+          "label": "已建立完整培育機制，定期提供各職類員工內部或外部培訓",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "no": 7,
+      "dimension": "AI投入資源",
+      "dimensionId": "resource",
+      "title": "AI技術人力",
+      "type": "single",
+      "prompt": "推動AI時，公司有沒有聘任或配置AI技術人員？（例如演算法、模型訓練、軟體開發）",
+      "options": [
+        {
+          "label": "尚未配置AI技術人員，也還沒用既有人員做評估或維運",
+          "score": 1
+        },
+        {
+          "label": "尚未聘任專責人員，由資訊單位或既有人員兼任評估、開發與維運",
+          "score": 2
+        },
+        {
+          "label": "在資訊或相關單位內，已編制少量AI技術人員",
+          "score": 3
+        },
+        {
+          "label": "已在資訊或相關單位設立AI團隊，專責評估、開發與維運",
+          "score": 4
+        },
+        {
+          "label": "已設立獨立於資訊單位之外的AI技術部門，有多位專業人才負責整體技術發展",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "no": 8,
+      "dimension": "策略規劃與管理",
+      "dimensionId": "strategy",
+      "title": "企業AI推動策略",
+      "type": "single",
+      "prompt": "公司目前對AI發展策略的規劃情形如何？",
+      "options": [
+        {
+          "label": "還沒規劃數位轉型，或不了解AI的發展與應用",
+          "score": 1
+        },
+        {
+          "label": "正開始規劃數位轉型基礎（數位化作業、工具或系統），或對AI有基礎認識",
+          "score": 2
+        },
+        {
+          "label": "已有數位轉型策略或相關基礎，或已理解AI可如何用在業務流程",
+          "score": 3
+        },
+        {
+          "label": "已在轉型策略中納入AI，並開始明確AI在流程或營運中的角色與方向",
+          "score": 4
+        },
+        {
+          "label": "已有獨立的AI發展策略，並與企業營運目標明確結合",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "no": 9,
+      "dimension": "策略規劃與管理",
+      "dimensionId": "strategy",
+      "title": "AI推動組織",
+      "type": "single",
+      "prompt": "公司有沒有設立推動AI數位轉型的專責組織或機制？",
+      "options": [
+        {
+          "label": "目前沒有相關單位",
+          "score": 1
+        },
+        {
+          "label": "由資訊或特定部門設立工作小組，彙整各部門需求與進度",
+          "score": 2
+        },
+        {
+          "label": "已成立跨部門工作小組，定期向高階主管匯報",
+          "score": 3
+        },
+        {
+          "label": "已有高階主管帶領的推動小組，訂定年度目標並定期追蹤",
+          "score": 4
+        },
+        {
+          "label": "已有高階主管組成的常態專責委員會及推動組織，並訂年度規劃、定期檢視",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "no": 10,
+      "dimension": "策略規劃與管理",
+      "dimensionId": "strategy",
+      "title": "數據治理制度",
+      "type": "multi",
+      "prompt": "針對數位化系統蒐集的資料，公司建立了哪些管理機制？",
+      "exclusiveId": "none",
+      "scoreByCount": [
+        {
+          "max": 0,
+          "score": 1
+        },
+        {
+          "max": 2,
+          "score": 2
+        },
+        {
+          "max": 4,
+          "score": 3
+        },
+        {
+          "max": 6,
+          "score": 4
+        },
+        {
+          "max": 8,
+          "score": 5
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": "有專責人員或團隊，並明確維護責任"
+        },
+        {
+          "id": "b",
+          "label": "有數據索引，方便檢索"
+        },
+        {
+          "id": "c",
+          "label": "有格式標準，方便彙整與互通"
+        },
+        {
+          "id": "d",
+          "label": "有清理、錯誤處理等品質監測機制"
+        },
+        {
+          "id": "e",
+          "label": "有存取權限、日誌或加密等資安機制"
+        },
+        {
+          "id": "f",
+          "label": "有符合國際或地區（如GDPR）的隱私與個資保護作法"
+        },
+        {
+          "id": "g",
+          "label": "有生命週期管理，規範存放與刪除流程"
+        },
+        {
+          "id": "h",
+          "label": "有歷史版本控管與還原追溯機制"
+        },
+        {
+          "id": "none",
+          "label": "以上皆無",
+          "exclusive": true
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "no": 11,
+      "dimension": "策略規劃與管理",
+      "dimensionId": "strategy",
+      "title": "可信賴AI管理",
+      "type": "multi",
+      "prompt": "針對AI系統的開發與使用，公司有哪些準則、規範或政策？",
+      "exclusiveId": "none",
+      "scoreByCount": [
+        {
+          "max": 0,
+          "score": 1
+        },
+        {
+          "max": 2,
+          "score": 2
+        },
+        {
+          "max": 4,
+          "score": 3
+        },
+        {
+          "max": 6,
+          "score": 4
+        },
+        {
+          "max": 7,
+          "score": 5
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": "透明性：使用者能理解並追蹤決策過程"
+        },
+        {
+          "id": "b",
+          "label": "安全性與韌性：系統可靠、可偵測錯誤，不易被攻擊"
+        },
+        {
+          "id": "c",
+          "label": "可問責性：推論行為可追溯，有負責團隊與錯誤修正機制"
+        },
+        {
+          "id": "d",
+          "label": "公平性：推論保持中立，避免歧視或偏見"
+        },
+        {
+          "id": "e",
+          "label": "隱私與數據保護：處理資料符合法規，不濫用個人資料"
+        },
+        {
+          "id": "f",
+          "label": "人類監督：不能完全自主決策，須有監督與緊急介入機制"
+        },
+        {
+          "id": "g",
+          "label": "社會與環境責任：決策應對社會與環境有正面影響，避免技術濫用"
+        },
+        {
+          "id": "none",
+          "label": "以上皆無",
+          "exclusive": true
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "no": 12,
+      "dimension": "AI應用與落地",
+      "dimensionId": "application",
+      "title": "AI應用導入深度",
+      "type": "single",
+      "prompt": "AI用在業務流程的導入與使用，目前到哪個程度？（不含ChatGPT等通用生成式工具）",
+      "options": [
+        {
+          "label": "尚未投入研究或規劃",
+          "score": 1
+        },
+        {
+          "label": "部分流程正在探索可能性，但還沒實際應用",
+          "score": 2
+        },
+        {
+          "label": "做過試行或測試專案，但還沒正式導入日常作業",
+          "score": 3
+        },
+        {
+          "label": "部分業務流程或場域已導入，並持續用在日常營運",
+          "score": 4
+        },
+        {
+          "label": "多數業務流程或場域都已導入，成為日常營運的重要一環",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "no": 13,
+      "dimension": "AI應用與落地",
+      "dimensionId": "application",
+      "title": "AI應用領域落地程度",
+      "type": "multi",
+      "prompt": "歷年來，公司在哪些業務場域已做過AI試行，或已實際落地？",
+      "exclusiveId": "none",
+      "scoreByCount": [
+        {
+          "max": 0,
+          "score": 1
+        },
+        {
+          "max": 2,
+          "score": 2
+        },
+        {
+          "max": 5,
+          "score": 3
+        },
+        {
+          "max": 8,
+          "score": 4
+        },
+        {
+          "max": 11,
+          "score": 5
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": "產品研發設計"
+        },
+        {
+          "id": "b",
+          "label": "生產製程"
+        },
+        {
+          "id": "c",
+          "label": "供應鏈管理"
+        },
+        {
+          "id": "d",
+          "label": "品質檢測"
+        },
+        {
+          "id": "e",
+          "label": "設備維護"
+        },
+        {
+          "id": "f",
+          "label": "廠務管理"
+        },
+        {
+          "id": "g",
+          "label": "工廠碳排與能耗"
+        },
+        {
+          "id": "h",
+          "label": "業務客服"
+        },
+        {
+          "id": "i",
+          "label": "營運管理與行銷"
+        },
+        {
+          "id": "j",
+          "label": "人力資源"
+        },
+        {
+          "id": "k",
+          "label": "物流倉儲"
+        },
+        {
+          "id": "none",
+          "label": "以上皆無",
+          "exclusive": true
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "no": 14,
+      "dimension": "AI應用與落地",
+      "dimensionId": "application",
+      "title": "技術開發管道",
+      "type": "single",
+      "prompt": "導入的AI系統，大多用什麼方式取得技術支援？",
+      "options": [
+        {
+          "label": "尚未應用AI技術或平台服務",
+          "score": 1
+        },
+        {
+          "label": "基本上都外購，或委請業者提供整體方案",
+          "score": 2
+        },
+        {
+          "label": "以外購或委外為主，只有少部分能由內部自建或調整",
+          "score": 3
+        },
+        {
+          "label": "主要自行建置，少部分進階技術與外部業者或專家共同研發",
+          "score": 4
+        },
+        {
+          "label": "已有深厚研發能量，系統基本上都可由內部同仁自行開發",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "no": 15,
+      "dimension": "AI應用與落地",
+      "dimensionId": "application",
+      "title": "AI系統維運更新",
+      "type": "single",
+      "prompt": "已導入的AI系統，目前維運與更新狀態如何？",
+      "options": [
+        {
+          "label": "還沒有需要維護的AI系統",
+          "score": 1
+        },
+        {
+          "label": "已上線，但主要靠開發團隊或資訊部門臨時維護，缺乏整體維運架構",
+          "score": 2
+        },
+        {
+          "label": "已建立基本維運流程（日常監控、錯誤修正），但尚未自動化監控或持續優化模型",
+          "score": 3
+        },
+        {
+          "label": "已納入企業IT維運架構，具備監控與優化機制，並能依業務需求定期更新模型與資料",
+          "score": 4
+        },
+        {
+          "label": "已整合自動化監測、異常預測與資料回饋，模型可持續學習與自適應調整，無需頻繁人工介入",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "no": 16,
+      "dimension": "營運效益",
+      "dimensionId": "benefit",
+      "title": "AI導入應用效益",
+      "type": "single",
+      "prompt": "導入AI是否達到預期營運效益，並達成數位轉型的業務目標？",
+      "options": [
+        {
+          "label": "還沒規劃導入，或尚未評估效益",
+          "score": 1
+        },
+        {
+          "label": "目前難以評估導入效益",
+          "score": 2
+        },
+        {
+          "label": "已初步評估，但效益不如預期，需要持續優化",
+          "score": 3
+        },
+        {
+          "label": "試行專案或應用服務已產生初步營運效益",
+          "score": 4
+        },
+        {
+          "label": "已明確量化效益，普遍成果良好，達成轉型目標",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "no": 17,
+      "dimension": "營運效益",
+      "dimensionId": "benefit",
+      "title": "導入ROI投報率",
+      "type": "single",
+      "prompt": "投入資金與資源發展AI，是否已達到該專案設定的投資報酬率（ROI）目標？",
+      "options": [
+        {
+          "label": "還沒規劃導入，或尚未估算投資報酬率",
+          "score": 1
+        },
+        {
+          "label": "已開始研究投入效益，但報酬率仍難以量化",
+          "score": 2
+        },
+        {
+          "label": "已有估算方法，但報酬率不如預期",
+          "score": 3
+        },
+        {
+          "label": "已有估算方法，且報酬率達到基本預期",
+          "score": 4
+        },
+        {
+          "label": "已有估算方法，且報酬率明顯優於預期、效益顯著",
+          "score": 5
+        }
+      ]
+    }
+  ],
+  "quickQuestions": [
+    {
+      "id": "quick-data",
+      "dimension": "數據與基礎設施",
+      "dimensionId": "data",
+      "type": "single",
+      "prompt": "公司的資料現在是什麼狀態？",
+      "options": [
+        {
+          "label": "多靠紙本記錄",
+          "score": 1
+        },
+        {
+          "label": "有系統但各自獨立",
+          "score": 2
+        },
+        {
+          "label": "部分系統已串接",
+          "score": 3
+        },
+        {
+          "label": "有集中管理的數據平台",
+          "score": 4
+        },
+        {
+          "label": "平台還能自動視覺化分析",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "quick-resource",
+      "dimension": "AI投入資源",
+      "dimensionId": "resource",
+      "type": "single",
+      "prompt": "公司對AI投入了預算或人力嗎？",
+      "options": [
+        {
+          "label": "還沒有",
+          "score": 1
+        },
+        {
+          "label": "只有規劃人力或培訓",
+          "score": 2
+        },
+        {
+          "label": "只有軟硬體預算",
+          "score": 3
+        },
+        {
+          "label": "人力和預算都有規劃",
+          "score": 4
+        },
+        {
+          "label": "有專責單位與固定預算",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "quick-strategy",
+      "dimension": "策略規劃與管理",
+      "dimensionId": "strategy",
+      "type": "single",
+      "prompt": "AI在公司策略中的位置？",
+      "options": [
+        {
+          "label": "還沒想過",
+          "score": 1
+        },
+        {
+          "label": "剛開始數位化",
+          "score": 2
+        },
+        {
+          "label": "已有數位轉型策略",
+          "score": 3
+        },
+        {
+          "label": "轉型策略已納入AI",
+          "score": 4
+        },
+        {
+          "label": "有獨立AI策略並連結營運目標",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "quick-application",
+      "dimension": "AI應用與落地",
+      "dimensionId": "application",
+      "type": "single",
+      "prompt": "AI實際用到哪個階段？（不含ChatGPT等通用工具）",
+      "options": [
+        {
+          "label": "還沒開始",
+          "score": 1
+        },
+        {
+          "label": "探索中",
+          "score": 2
+        },
+        {
+          "label": "做過試行專案",
+          "score": 3
+        },
+        {
+          "label": "部分流程日常在用",
+          "score": 4
+        },
+        {
+          "label": "多數流程都在用",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "quick-benefit",
+      "dimension": "營運效益",
+      "dimensionId": "benefit",
+      "type": "single",
+      "prompt": "AI帶來效益了嗎？",
+      "options": [
+        {
+          "label": "還沒評估",
+          "score": 1
+        },
+        {
+          "label": "很難評估",
+          "score": 2
+        },
+        {
+          "label": "有評估但不如預期",
+          "score": 3
+        },
+        {
+          "label": "已有初步效益",
+          "score": 4
+        },
+        {
+          "label": "已量化且效益明顯",
+          "score": 5
+        }
+      ]
+    }
+  ],
+  "levels": [
+    {
+      "id": "unknowing",
+      "officialName": "Unknowing AI",
+      "title": "見習新手",
+      "flavor": "剛登島，還在找方向",
+      "minAvg": 1.0,
+      "maxAvg": 2.0,
+      "minScore": 5,
+      "maxScore": 9,
+      "description": "尚未導入AI，需求與應用方向仍待釐清",
+      "nationalPercent": 34.5,
+      "nationalCount": 1842,
+      "recommendation": "先盤點痛點、從單一場景與資料數位化開始",
+      "portrait": "assets/img/portrait_unknowing.png"
+    },
+    {
+      "id": "conscious",
+      "officialName": "Conscious AI",
+      "title": "探險者",
+      "flavor": "開始收集資料與人才裝備",
+      "minAvg": 2.0,
+      "maxAvg": 3.0,
+      "minScore": 10,
+      "maxScore": 14,
+      "description": "正建立資料與人才基礎",
+      "nationalPercent": 31.7,
+      "nationalCount": 1693,
+      "recommendation": "串接資料、培養種子人才、選定試行專案",
+      "portrait": "assets/img/portrait_conscious.png"
+    },
+    {
+      "id": "ready",
+      "officialName": "Ready AI",
+      "title": "冒險戰士",
+      "flavor": "AI已經上場戰鬥",
+      "minAvg": 3.0,
+      "maxAvg": 4.0,
+      "minScore": 15,
+      "maxScore": 19,
+      "description": "已開始應用AI，逐步融入工作流程",
+      "nationalPercent": 22.7,
+      "nationalCount": 1212,
+      "recommendation": "建立維運機制與效益追蹤，擴大到更多流程",
+      "portrait": "assets/img/portrait_ready.png"
+    },
+    {
+      "id": "scaling",
+      "officialName": "Scaling AI",
+      "title": "傳奇勇者",
+      "flavor": "帶領隊伍擴大戰果",
+      "minAvg": 4.0,
+      "maxAvg": 5.01,
+      "minScore": 20,
+      "maxScore": 25,
+      "description": "AI融入營運，持續優化並擴大應用",
+      "nationalPercent": 11.1,
+      "nationalCount": 593,
+      "recommendation": "強化AI治理與ROI管理，推動跨廠區規模化",
+      "portrait": "assets/img/portrait_scaling.png"
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "data",
+      "name": "數據與基礎設施"
+    },
+    {
+      "id": "resource",
+      "name": "AI投入資源"
+    },
+    {
+      "id": "strategy",
+      "name": "策略規劃與管理"
+    },
+    {
+      "id": "application",
+      "name": "AI應用與落地"
+    },
+    {
+      "id": "benefit",
+      "name": "營運效益"
+    }
+  ]
+}
