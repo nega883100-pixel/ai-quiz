@@ -422,6 +422,15 @@ button {
   overscroll-behavior: contain;
   padding: 2px 4px 8px 2px;
 }
+/* Short labels on multi-choice (e.g. 6+1 AI tool categories) stay tappable and preferably on-screen. */
+.options.is-multi {
+  gap: 6px;
+}
+.options.is-multi .opt {
+  min-height: var(--touch);
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
 .opt {
   display: flex;
   align-items: center;

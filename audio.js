@@ -79,14 +79,29 @@
     if (!AC) return false;
     ctx = new AC();
     master = ctx.createGain();
-    master.gain.value = 0.2;
-    master.connect(ctx.destination);
+    master.gain.value = 0.2; /* unchanged so SFX loudness stays put */
     bgmGain = ctx.createGain();
-    bgmGain.gain.value = 0.55;
-    bgmGain.connect(master);
+    /* was 0.55; 1.5 is ~2.73x so BGM sits near SFX without overtaking clicks */
+    bgmGain.gain.value = 1.5;
+    var bgmComp = ctx.createDynamicsCompressor();
+    bgmComp.threshold.value = -10;
+    bgmComp.knee.value = 6;
+    bgmComp.ratio.value = 8;
+    bgmComp.attack.value = 0.005;
+    bgmComp.release.value = 0.15;
+    bgmGain.connect(bgmComp);
+    bgmComp.connect(master);
     sfxGain = ctx.createGain();
-    sfxGain.gain.value = 0.7;
+    sfxGain.gain.value = 0.7; /* unchanged; short SFX bypass the BGM compressor */
     sfxGain.connect(master);
+    var limiter = ctx.createDynamicsCompressor();
+    limiter.threshold.value = -2;
+    limiter.knee.value = 2;
+    limiter.ratio.value = 20;
+    limiter.attack.value = 0.003;
+    limiter.release.value = 0.1;
+    master.connect(limiter);
+    limiter.connect(ctx.destination);
     return true;
   }
 

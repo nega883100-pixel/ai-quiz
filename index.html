@@ -35,7 +35,7 @@
       <div class="start-cta">
         <button type="button" class="btn-start" id="btn-start-full">
           <span class="en" id="btn-start-full-en">FULL QUEST</span>
-          <span class="zh" id="btn-start-full-zh">完整挑戰 17題・約2分鐘</span>
+          <span class="zh" id="btn-start-full-zh">完整挑戰 15題・約2分鐘</span>
         </button>
         <button type="button" class="btn-start btn-start-secondary" id="btn-start-quick">
           <span class="en" id="btn-start-quick-en">QUICK RUN</span>
@@ -115,7 +115,7 @@
   <!-- 若以本機伺服器開啟，會優先讀取 questions.json；直接打開本檔則使用下方備份。請保持兩者同步。 -->
   <script type="application/json" id="quiz-config">
 {
-  "_comment": "可編輯的測驗設定。完整挑戰為 17 題全文（措辭已改寫，非原文照抄）；快速闖關為五構面各一題精簡版。四個成熟度等級（Unknowing／Conscious／Ready／Scaling AI）是結果稱號，不是關卡。分數門檻與複選／矩陣計分為暫定（thresholdsProvisional: true），正式規則確認後請改此檔並同步更新 index.html 內嵌設定。請勿在此檔放入任何真實企業作答或聯絡資料。",
+  "_comment": "可編輯的測驗設定。完整挑戰為 15 題（會場精簡版，措辭已改寫，非原文照抄）；快速闖關為五構面各一題精簡版。四個成熟度等級（Unknowing／Conscious／Ready／Scaling AI）是結果稱號，不是關卡。分數門檻與複選計分為暫定（thresholdsProvisional: true），正式規則確認後請改此檔並同步更新 index.html 內嵌設定。請勿在此檔放入任何真實企業作答或聯絡資料。",
   "meta": {
     "title": "企業 AI 能力大冒險",
     "subtitle": "了解你的企業AI成熟度",
@@ -123,11 +123,11 @@
     "org": "經濟部產業競爭力輔導團",
     "orgShort": "工研院",
     "startHint": "免填個資・答完立即揭曉你的AI冒險稱號",
-    "fullButton": "完整挑戰 17題・約2分鐘",
+    "fullButton": "完整挑戰 15題・約2分鐘",
     "fullButtonEn": "FULL QUEST",
     "quickButton": "快速闖關 5題・30秒",
     "quickButtonEn": "QUICK RUN",
-    "startButton": "完整挑戰 17題・約2分鐘",
+    "startButton": "完整挑戰 15題・約2分鐘",
     "startButtonEn": "FULL QUEST",
     "restartLabel": "重新開始",
     "againLabel": "再測一次",
@@ -161,7 +161,7 @@
   "scoring": {
     "thresholdsProvisional": true,
     "method": "average",
-    "note": "原文量表未載明分數門檻與複選計分規則，以下為暫定：各題先換成 1–5 分（複選依勾選項數分級，矩陣題為各系統 1／3／5 的平均），再以全部題目平均對應等級。門檻與五題版 5–9／10–14／15–19／20–25 一致：平均 <2 見習新手、<3 探險者、<4 冒險戰士、≥4 傳奇勇者。",
+    "note": "原文量表未載明分數門檻與複選計分規則，以下為暫定：各題先換成 1–5 分（複選依勾選項數分級），再以全部題目平均對應等級。門檻與五題版 5–9／10–14／15–19／20–25 一致：平均 <2 見習新手、<3 探險者、<4 冒險戰士、≥4 傳奇勇者。",
     "bands": [
       {
         "id": "unknowing",
@@ -184,8 +184,7 @@
         "maxAvgExclusive": 5.01
       }
     ],
-    "multiRule": "count-bands",
-    "matrixRule": "average-of-rows-1-3-5"
+    "multiRule": "count-bands"
   },
   "questions": [
     {
@@ -194,71 +193,30 @@
       "dimension": "數據與基礎設施",
       "dimensionId": "data",
       "title": "數位化程度",
-      "type": "matrix",
-      "prompt": "公司目前這些資訊系統，分別做到哪個階段？",
-      "columns": [
+      "type": "single",
+      "prompt": "公司的核心營運系統，目前建置到什麼程度？",
+      "options": [
         {
-          "id": "a",
-          "label": "尚無規劃或評估中",
-          "short": "評估中",
+          "label": "大多還用紙本或 Excel",
           "score": 1
         },
         {
-          "id": "b",
-          "label": "系統建置中",
-          "short": "建置中",
+          "label": "有一兩個系統（例如進銷存、會計），但互不串接",
+          "score": 2
+        },
+        {
+          "label": "已有主要營運系統（如進銷存、會計）並在使用",
           "score": 3
         },
         {
-          "id": "c",
-          "label": "已導入並在使用",
-          "short": "已使用",
+          "label": "生產、庫存、客戶等系統已有多套在用",
+          "score": 4
+        },
+        {
+          "label": "主要系統都已上線，且資料能互通",
           "score": 5
         }
-      ],
-      "rows": [
-        {
-          "id": "mes",
-          "label": "製造執行（MES）"
-        },
-        {
-          "id": "ems",
-          "label": "設備機台管理（EMS）"
-        },
-        {
-          "id": "aps",
-          "label": "製造排程（APS）"
-        },
-        {
-          "id": "rms",
-          "label": "原料配方管理（RMS）"
-        },
-        {
-          "id": "wms",
-          "label": "倉儲管理（WMS）"
-        },
-        {
-          "id": "plm",
-          "label": "產品生命週期（PLM）"
-        },
-        {
-          "id": "erp",
-          "label": "企業資源規劃（ERP）"
-        },
-        {
-          "id": "scm",
-          "label": "供應鏈管理（SCM）"
-        },
-        {
-          "id": "crm",
-          "label": "客戶關係管理（CRM）"
-        },
-        {
-          "id": "bi",
-          "label": "商業智慧決策（BI）"
-        }
-      ],
-      "scoreRule": "average"
+      ]
     },
     {
       "id": "q2",
@@ -511,144 +469,6 @@
     {
       "id": "q10",
       "no": 10,
-      "dimension": "策略規劃與管理",
-      "dimensionId": "strategy",
-      "title": "數據治理制度",
-      "type": "multi",
-      "prompt": "針對數位化系統蒐集的資料，公司建立了哪些管理機制？",
-      "exclusiveId": "none",
-      "scoreByCount": [
-        {
-          "max": 0,
-          "score": 1
-        },
-        {
-          "max": 2,
-          "score": 2
-        },
-        {
-          "max": 4,
-          "score": 3
-        },
-        {
-          "max": 6,
-          "score": 4
-        },
-        {
-          "max": 8,
-          "score": 5
-        }
-      ],
-      "options": [
-        {
-          "id": "a",
-          "label": "有專責人員或團隊，並明確維護責任"
-        },
-        {
-          "id": "b",
-          "label": "有數據索引，方便檢索"
-        },
-        {
-          "id": "c",
-          "label": "有格式標準，方便彙整與互通"
-        },
-        {
-          "id": "d",
-          "label": "有清理、錯誤處理等品質監測機制"
-        },
-        {
-          "id": "e",
-          "label": "有存取權限、日誌或加密等資安機制"
-        },
-        {
-          "id": "f",
-          "label": "有符合國際或地區（如GDPR）的隱私與個資保護作法"
-        },
-        {
-          "id": "g",
-          "label": "有生命週期管理，規範存放與刪除流程"
-        },
-        {
-          "id": "h",
-          "label": "有歷史版本控管與還原追溯機制"
-        },
-        {
-          "id": "none",
-          "label": "以上皆無",
-          "exclusive": true
-        }
-      ]
-    },
-    {
-      "id": "q11",
-      "no": 11,
-      "dimension": "策略規劃與管理",
-      "dimensionId": "strategy",
-      "title": "可信賴AI管理",
-      "type": "multi",
-      "prompt": "針對AI系統的開發與使用，公司有哪些準則、規範或政策？",
-      "exclusiveId": "none",
-      "scoreByCount": [
-        {
-          "max": 0,
-          "score": 1
-        },
-        {
-          "max": 2,
-          "score": 2
-        },
-        {
-          "max": 4,
-          "score": 3
-        },
-        {
-          "max": 6,
-          "score": 4
-        },
-        {
-          "max": 7,
-          "score": 5
-        }
-      ],
-      "options": [
-        {
-          "id": "a",
-          "label": "透明性：使用者能理解並追蹤決策過程"
-        },
-        {
-          "id": "b",
-          "label": "安全性與韌性：系統可靠、可偵測錯誤，不易被攻擊"
-        },
-        {
-          "id": "c",
-          "label": "可問責性：推論行為可追溯，有負責團隊與錯誤修正機制"
-        },
-        {
-          "id": "d",
-          "label": "公平性：推論保持中立，避免歧視或偏見"
-        },
-        {
-          "id": "e",
-          "label": "隱私與數據保護：處理資料符合法規，不濫用個人資料"
-        },
-        {
-          "id": "f",
-          "label": "人類監督：不能完全自主決策，須有監督與緊急介入機制"
-        },
-        {
-          "id": "g",
-          "label": "社會與環境責任：決策應對社會與環境有正面影響，避免技術濫用"
-        },
-        {
-          "id": "none",
-          "label": "以上皆無",
-          "exclusive": true
-        }
-      ]
-    },
-    {
-      "id": "q12",
-      "no": 12,
       "dimension": "AI應用與落地",
       "dimensionId": "application",
       "title": "AI應用導入深度",
@@ -678,13 +498,11 @@
       ]
     },
     {
-      "id": "q13",
-      "no": 13,
       "dimension": "AI應用與落地",
       "dimensionId": "application",
-      "title": "AI應用領域落地程度",
+      "title": "AI工具應用面向",
       "type": "multi",
-      "prompt": "歷年來，公司在哪些業務場域已做過AI試行，或已實際落地？",
+      "prompt": "貴公司目前在哪些管理面向已使用AI工具？",
       "exclusiveId": "none",
       "scoreByCount": [
         {
@@ -692,77 +510,59 @@
           "score": 1
         },
         {
-          "max": 2,
+          "max": 1,
           "score": 2
         },
         {
-          "max": 5,
+          "max": 3,
           "score": 3
         },
         {
-          "max": 8,
+          "max": 5,
           "score": 4
         },
         {
-          "max": 11,
+          "max": 6,
           "score": 5
         }
       ],
       "options": [
         {
           "id": "a",
-          "label": "產品研發設計"
+          "label": "人員及知識管理"
         },
         {
           "id": "b",
-          "label": "生產製程"
+          "label": "環境及設備管理"
         },
         {
           "id": "c",
-          "label": "供應鏈管理"
+          "label": "原物料管理"
         },
         {
           "id": "d",
-          "label": "品質檢測"
+          "label": "生產與品質管理"
         },
         {
           "id": "e",
-          "label": "設備維護"
+          "label": "行銷管理"
         },
         {
           "id": "f",
-          "label": "廠務管理"
-        },
-        {
-          "id": "g",
-          "label": "工廠碳排與能耗"
-        },
-        {
-          "id": "h",
-          "label": "業務客服"
-        },
-        {
-          "id": "i",
-          "label": "營運管理與行銷"
-        },
-        {
-          "id": "j",
-          "label": "人力資源"
-        },
-        {
-          "id": "k",
-          "label": "物流倉儲"
+          "label": "能源與碳排管理"
         },
         {
           "id": "none",
-          "label": "以上皆無",
+          "label": "目前尚未應用",
           "exclusive": true
         }
-      ]
+      ],
+      "id": "q11",
+      "no": 11
     },
     {
-      "id": "q14",
-      "no": 14,
+      "id": "q12",
+      "no": 12,
       "dimension": "AI應用與落地",
       "dimensionId": "application",
       "title": "技術開發管道",
@@ -792,8 +592,8 @@
       ]
     },
     {
-      "id": "q15",
-      "no": 15,
+      "id": "q13",
+      "no": 13,
       "dimension": "AI應用與落地",
       "dimensionId": "application",
       "title": "AI系統維運更新",
@@ -823,8 +623,8 @@
       ]
     },
     {
-      "id": "q16",
-      "no": 16,
+      "id": "q14",
+      "no": 14,
       "dimension": "營運效益",
       "dimensionId": "benefit",
       "title": "AI導入應用效益",
@@ -854,8 +654,8 @@
       ]
     },
     {
-      "id": "q17",
-      "no": 17,
+      "id": "q15",
+      "no": 15,
       "dimension": "營運效益",
       "dimensionId": "benefit",
       "title": "導入ROI投報率",
