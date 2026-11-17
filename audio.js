@@ -1,4 +1,4 @@
-/* Original 8-bit music and SFX for 經濟部產業競爭力輔導團「AI 登島計畫」.
+/* Original 8-bit music and SFX for 經濟部產業競爭力輔導團「企業 AI 能力大冒險」.
    Synthesized with the Web Audio API. No sampled audio, no third-party tunes.
    Melody is an original C-major pentatonic island bounce and is not based on
    any commercial game soundtrack. */
